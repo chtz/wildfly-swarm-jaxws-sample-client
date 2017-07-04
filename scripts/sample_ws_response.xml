@@ -1,0 +1,7 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns2:upperCaseResponse xmlns:ns2="http://poc.furthermore.ch/">
+         <return>HALLO</return>
+      </ns2:upperCaseResponse>
+   </soap:Body>
+</soap:Envelope>

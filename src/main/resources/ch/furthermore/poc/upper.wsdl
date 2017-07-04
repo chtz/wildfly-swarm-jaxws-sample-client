@@ -1,0 +1,56 @@
+<?xml version="1.0" ?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://poc.furthermore.ch/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="StringUtilsService" targetNamespace="http://poc.furthermore.ch/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://poc.furthermore.ch/" elementFormDefault="unqualified" targetNamespace="http://poc.furthermore.ch/" version="1.0">
+
+  <xs:element name="upperCase" type="tns:upperCase"></xs:element>
+
+  <xs:element name="upperCaseResponse" type="tns:upperCaseResponse"></xs:element>
+
+  <xs:complexType name="upperCase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="upperCaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="upperCase">
+    <wsdl:part element="tns:upperCase" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="upperCaseResponse">
+    <wsdl:part element="tns:upperCaseResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StringUtils">
+    <wsdl:operation name="upperCase">
+      <wsdl:input message="tns:upperCase" name="upperCase">
+    </wsdl:input>
+      <wsdl:output message="tns:upperCaseResponse" name="upperCaseResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StringUtilsServiceSoapBinding" type="tns:StringUtils">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="upperCase">
+      <soap:operation soapAction="" style="document"></soap:operation>
+      <wsdl:input name="upperCase">
+        <soap:body use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="upperCaseResponse">
+        <soap:body use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StringUtilsService">
+    <wsdl:port binding="tns:StringUtilsServiceSoapBinding" name="StringUtilsPort">
+      <soap:address location="http://nsa2001.local:8080/StringUtils"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
